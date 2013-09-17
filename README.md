@@ -1,6 +1,6 @@
-= GotoPinYin
+## GotoPinYin
 
-convert Simplified Chinese to Pinyin with GoLang
+Convert Simplified Chinese to Pinyin with GoLang
 
 ### install
 
