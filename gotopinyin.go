@@ -5,6 +5,8 @@ import (
 	"regexp"
 	"io/ioutil"
 	"strings"
+	"path"
+	"runtime"
 )
 
 var DICT = map[string][]string{}
@@ -12,7 +14,9 @@ var dictLoaded bool
 
 func initDict() {
 	if dictLoaded { return }
-	b, err := ioutil.ReadFile("pinyin.txt")
+	_, currentFile, _, _ := runtime.Caller(1)
+	file := path.Join(path.Dir(currentFile), "pinyin.txt")
+	b, err := ioutil.ReadFile(file)
 	if err != nil { panic(err) }
 	content := string(b)
 	ary := make([]string, 1000)
